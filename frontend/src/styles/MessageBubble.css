@@ -1,0 +1,121 @@
+/* MessageBubble styling - Claude-inspired */
+.message-bubble {
+  display: flex;
+  flex-direction: column;
+  max-width: 85%;
+  word-wrap: break-word;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-bubble.user {
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.message-bubble.assistant {
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.message-content {
+  padding: 0.875rem 1.25rem;
+  border-radius: 1rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.message-bubble.user .message-content {
+  background: linear-gradient(135deg, var(--message-user) 0%, hsl(210, 80%, 40%) 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.message-bubble.user .message-content:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.message-bubble.assistant .message-content {
+  background-color: var(--bg-200);
+  color: var(--text-100);
+  border: 1px solid var(--border-color);
+}
+
+.message-bubble.assistant .message-content:hover {
+  border-color: var(--text-300);
+  background-color: var(--bg-300);
+}
+
+.message-content p {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.message-content p + p {
+  margin-top: 0.5rem;
+}
+
+/* Code block styling within messages */
+.message-content code {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.3rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+}
+
+.message-bubble.user .message-content code {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.message-bubble.assistant .message-content code {
+  background-color: var(--bg-100);
+  color: var(--accent);
+}
+
+.message-timestamp {
+  font-size: 0.75rem;
+  color: var(--text-300);
+  margin-top: 0.5rem;
+  padding: 0 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.message-bubble:hover .message-timestamp {
+  color: var(--text-200);
+}
+
+.message-bubble.user .message-timestamp {
+  text-align: right;
+}
+
+.message-bubble.assistant .message-timestamp {
+  text-align: left;
+}
+
+/* Loading animation for assistant response */
+.message-bubble.assistant.loading .message-content::after {
+  content: '';
+  animation: typing 1.5s ease-in-out infinite;
+}
+
+@keyframes typing {
+  0%, 100% {
+    box-shadow: inset -2px 0 0 0 var(--text-300);
+  }
+  50% {
+    box-shadow: inset -2px 0 0 0 var(--accent);
+  }
+}

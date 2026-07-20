@@ -1,0 +1,14 @@
+.env
+.env.local
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.DS_Store
+*.egg-info/
+.idea/
+*.swp
+*.swo

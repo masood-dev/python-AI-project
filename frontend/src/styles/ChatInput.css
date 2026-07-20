@@ -1,0 +1,120 @@
+/* ChatInput styling - Claude-inspired */
+.chat-input {
+  border-top: 1px solid var(--border-color);
+  padding: 1.25rem;
+  background-color: var(--bg-100);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.chat-input textarea {
+  width: 100%;
+  min-height: 56px;
+  max-height: 240px;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.875rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  background-color: var(--bg-200);
+  color: var(--text-100);
+  transition: all 0.2s ease;
+}
+
+.chat-input textarea::placeholder {
+  color: var(--text-300);
+}
+
+.chat-input textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.15);
+  background-color: var(--bg-300);
+}
+
+.chat-input textarea:disabled {
+  background-color: var(--bg-200);
+  color: var(--text-300);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.input-controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.875rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.upload-btn,
+.send-btn {
+  padding: 0.625rem 1rem;
+  border: none;
+  border-radius: 0.625rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.upload-btn {
+  background-color: var(--bg-200);
+  color: var(--text-100);
+  border: 1px solid var(--border-color);
+}
+
+.upload-btn:hover:not(:disabled) {
+  background-color: var(--bg-300);
+  border-color: var(--text-300);
+}
+
+.upload-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.send-btn {
+  background: linear-gradient(135deg, var(--accent) 0%, hsl(210, 85%, 55%) 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+}
+
+.send-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+}
+
+.send-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.send-btn:disabled,
+.upload-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* File input hidden styling */
+.chat-input input[type="file"] {
+  display: none;
+}
+
+/* Upload status indicator */
+.upload-status {
+  font-size: 0.85rem;
+  color: var(--text-300);
+  padding: 0.5rem;
+  text-align: right;
+}
+
+.upload-status.success {
+  color: hsl(120, 100%, 50%);
+}
+
+.upload-status.error {
+  color: hsl(0, 100%, 50%);
+}
